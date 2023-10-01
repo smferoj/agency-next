@@ -1,78 +1,64 @@
-const HowWorks = () => {
+async function getData(){
+  const res = await fetch(process.env.BASE_URL+"api/WorkList");
+  if(!res.ok){
+      throw new Error("All project Calling Fail")
+  }
+  return  res.json();
+}
+
+import {BsArrowRight} from 'react-icons/bs';
+
+const HowWorks = async() => {
+const data = await getData();
     return (
         <div>
-            <section>
-                <div className="skew skew-top mr-for-radius">
-                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-                        <polygon fill="currentColor" points="0 0 10 10 0 10" />
+            <section  className="flex justify-center items-center w-full">
+            <div className=" bg-gray-50">
+           <div className="container ">
+            <div className="mb-16 ">
+              <span className="text-green-600 font-bold pb-5">
+               WORKS LIST
+              </span>
+              <h2 className="text-5xl md:text-4xl font-bold w-1/2">
+              We provide the Perfect Solution to your business growth
+              </h2>
+            </div>
+
+            <div className="flex">
+              {data.map((item, id)=>{
+                return(
+                  <div className="mb-12 pl-[50px]">
+                  <span className="mb-4 md:mb-6 inline-block bg-green-100 text-green-500 rounded">
+                    <svg
+                      className="w-8 h-8"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                     </svg>
+                  </span>
+                  <h4 className="mb-4 text-2xl font-bold font-heading">
+                    {item['title']}
+                  </h4>
+                  <p className="text-dark leading-loose">
+                   {item['des']}
+                  </p>
+                   <p className="text-green-500"> Step:{item['step']}</p>
+                   <p>Ceated at: {item['created_at']}</p>
+                   <p>Ceated at: {item['updated_at']}</p>
+                  <div className="flex gap-2">
+                  <p>Learn More </p>
+                  <span className="mt-2"><BsArrowRight/></span>
+                  </div>
                 </div>
-                <div className="skew skew-top ml-for-radius">
-                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-                        <polygon fill="currentColor" points="0 10 10 0 10 10" />
-                    </svg>
-                </div>
-                <div className="py-20 bg-gray-50 radius-for-skewed">
-                    <div className="container mx-auto px-4">
-                        <div className="mb-16 max-w-md text-center mx-auto">
-                            <span className="text-green-600 font-bold">
-                                Dolor sit amet consectutar
-                            </span>
-                            <h2 className="text-4xl lg:text-5xl font-bold font-heading">
-                                Build &amp; Launch without problems
-                            </h2>
-                        </div>
-                        <div className="relative flex flex-wrap -mx-4 z-0">
-                            <div className="hidden lg:block absolute inset-x-0 max-w-2xl xl:max-w-3xl mx-auto py-px rounded bg-green-600" style={{ top: "10%", zIndex: -1 }}/>
-                            <div className="mb-8 w-full lg:w-1/3 px-4 text-center">
-                                <span className="relative mb-6 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                    1
-                                </span>
-                                <h3 className="mb-4 text-2xl font-bold font-heading">
-                                    Lorem ipsum dolor sit amet consectutar
-                                </h3>
-                                <p className="text-gray-500 leading-loose">
-                                    Fusce quam tellus, placerat eu metus ut, viverra aliquet purus.
-                                    Suspendisse potenti. Nulla non nibh feugiat.
-                                </p>
-                            </div>
-                            <div className="mb-8 w-full lg:w-1/3 px-4 text-center">
-                                <span className="mb-4 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                    2
-                                </span>
-                                <h3 className="mb-4 text-2xl font-bold font-heading">
-                                    Lorem ipsum dolor sit amet consectutar
-                                </h3>
-                                <p className="text-gray-500 leading-loose">
-                                    Fusce quam tellus, placerat eu metus ut, viverra aliquet purus.
-                                    Suspendisse potenti. Nulla non nibh feugiat.
-                                </p>
-                            </div>
-                            <div className="w-full lg:w-1/3 px-4 text-center">
-                                <span className="mb-4 lg:mb-10 mx-auto flex w-16 h-16 items-center justify-center bg-green-600 rounded-full text-white text-2xl">
-                                    3
-                                </span>
-                                <h3 className="mb-4 text-2xl font-bold font-heading">
-                                    Lorem ipsum dolor sit amet consectutar
-                                </h3>
-                                <p className="text-gray-500 leading-loose">
-                                    Fusce quam tellus, placerat eu metus ut, viverra aliquet purus.
-                                    Suspendisse potenti. Nulla non nibh feugiat.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="skew skew-bottom mr-for-radius">
-                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-                        <polygon fill="currentColor" points="0 0 10 0 0 10" />
-                    </svg>
-                </div>
-                <div className="skew skew-bottom ml-for-radius">
-                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-                        <polygon fill="currentColor" points="0 0 10 0 10 10" />
-                    </svg>
-                </div>
+                )
+              })}
+             
+             
+            </div>
+          </div>
+        </div>
             </section>
         </div>
     );

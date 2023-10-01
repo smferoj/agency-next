@@ -25,11 +25,11 @@ const data = await getData();
                   <div className="mb-16 flex flex-wrap justify-center md:justify-center items-center">
                       <div className="text-center lg:text-center">
                           <span className="text-green-600 font-bold">
-                          Dolor sit amet consectutar
+                          FEATURED PROJECT
                           </span>
-                          <h2 className="text-4xl lg:text-5xl font-bold font-heading">
-                              Our Projects
-                          </h2>
+                          <h4 className="text-4xl lg:text-5xl font-bold font-heading">
+                          We provide the Perfect Solution to your business growth
+                          </h4>
                       </div>
                   </div>
                   <div className="flex flex-wrap -mx-4 mb-4">

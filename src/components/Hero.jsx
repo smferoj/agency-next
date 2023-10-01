@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Brands from "./Brands";
 async function getData(){
     const res = await fetch(process.env.BASE_URL+"api/HeroList");
     if(!res.ok){
@@ -11,7 +12,7 @@ const Hero = async() => {
     const data = await getData();
     return (
         <div>
-            <section className='relative bg-gray-50'>
+            <section className='relative bg-green-100'>
                 <div className='relative pt-12 lg:pt-20 pb-20 z-10'>
                     <div className='container mx-auto px-4'>
                         <div className='flex flex-wrap -mx-4'>
@@ -19,16 +20,15 @@ const Hero = async() => {
                                 <div className='w-full text-center lg:text-left'>
                                     <div className='max-w-md mx-auto lg:mx-0'>
                                         <h2 className='mb-3 text-4xl lg:text-5xl font-bold font-heading'>
-                                            <span>Build &amp; Launch without</span>
-                                            <span className='text-green-600'>problems</span>
+                                        Increase Your Customers Loyalty and Satisfaction
                                         </h2>
                                     </div>
                                     <div className='max-w-sm mx-auto lg:mx-0'>
-                                        <p className='mb-6 text-gray-400 leading-loose'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur nisl sodales egestas lobortis.
+                                        <p className='mb-6 text-gray-400 leading-loose'>We help businesses like yours earn more customers, standout from competitors,  make more money
                                         </p>
                                         <div>
-                                            <Link className='inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-green-600 hover:bg-green-700 text-white font-semibold rounded-l-xl rounded-t-xl transition duration-200' href='#'>Get Started</Link>
-                                            <Link className='inline-block w-full lg:w-auto py-2 px-6 leading-loose font-semibold bg-white hover:bg-gray-50 rounded-l-xl rounded-t-xl transition duration-200' href='#'>How it works</Link>
+                                            <Link className='inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition duration-200' href='#'>Get Started</Link>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -45,6 +45,9 @@ const Hero = async() => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className= "bg-white z-10 relative w-full bottom-[25px]">
+                <Brands/>
                 </div>
             </section>
         </div>

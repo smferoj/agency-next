@@ -11,11 +11,8 @@ const Brands = async () => {
     // console.log(data)
      
   return (
-      <section className="py-20">
+      <section className="py-5">
           <div className="container mx-auto px-4 text-center">
-              <h3 className="mb-16 text-2xl font-heading">
-                  Trusted by brands all over the world
-              </h3>
               <div className="flex flex-wrap -mx-2">
                 {
                     data.map((item, i)=>{

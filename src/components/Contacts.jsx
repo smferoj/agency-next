@@ -1,55 +1,47 @@
-"use client"
-const Contacts = () => {
+'use client';
+
+async function getData() {
+  const res = await fetch(process.env.BASE_URL + "api/CreateContact");
+  if (!res.ok) {
+    throw new Error("Failed to fetch testimonials");
+  }
+  return res.json();
+}
+
+const Contacts = async () => {
+
     return (
-        <section className="py-20 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-wrap items-center justify-center -mx-4">
-                    <div className="mb-16 lg:mb-0 max-w-2xl lg:w-1/2 px-4">
-                        <a className="mb-6 inline-block text-3xl font-bold leading-none" href="#">
-                            <img className="h-12" src="atis-assets/logo/atis/atis-mono-sign.svg" alt="" width="auto"/>
-                        </a>
-                        <h2 className="mb-4 text-4xl md:text-5xl font-bold font-heading">
-                            So much more than a business analytics tool
-                        </h2>
-                        <p className="mb-8 text-gray-500 leading-loose">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-                            efficitur nisl sodales egestas lobortis.
-                        </p>
-                        <a className="inline-block py-2 px-6 bg-green-600 hover:bg-green-700 text-white font-bold leading-loose transition duration-250 rounded-l-xl rounded-t-xl" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                    <div className="w-full lg:w-1/2 px-4">
-                        <div className="max-w-sm mx-auto lg:mr-0 lg:ml-auto">
-                            <div className="mb-6 py-8 px-6 bg-white shadow rounded-t-3xl rounded-bl-3xl text-center">
-                                <form action="">
-                                    <div className="mb-6">
-                                        <span className="text-sm text-gray-400">Sign Up</span>
-                                        <h4 className="text-2xl">Create an account</h4>
-                                    </div>
-                                    <div className="mb-4 flex flex-wrap -mx-2">
-                                        <div className="mb-4 lg:mb-0 w-full lg:w-1/2 px-2">
-                                            <input className="py-2 px-3 w-full bg-gray-50 rounded leading-loose" type="text" placeholder="First Name"/>
-                                        </div>
-                                        <div className="w-full lg:w-1/2 px-2">
-                                            <input className="py-2 px-3 w-full bg-gray-50 rounded leading-loose" type="text" placeholder="Last Name"/>
-                                        </div>
-                                    </div>
-                                    <input className="mb-4 py-2 px-3 w-full bg-gray-50 rounded leading-loose" type="email" placeholder="hello@example.com"/>
-                                    <textarea className="mb-4 py-2 px-3 w-full bg-gray-50 rounded leading-loose" type="email" placeholder="Message"/>
+      <section className="py-20 bg-gray-50">
+        <div className="py-20 bg-gray-50 radius-for-skewed">
+          <div className="container mx-auto px-4">
+            <div className="max-w-xl mx-auto text-center">
+              <h4 className="text-green-500">SUBSCRIBE</h4>
+              <h2 className="mb-2 text-4xl lg:text-5xl font-bold font-heading">
+                Subscribe to get the latest news about us
+              </h2>
+              <p className="mb-8 text-gray-400 leading-loose">
+                Please drop your email below to get daily updates about what we do
+              </p>
 
-                                    <button className="mb-4 py-4 w-full rounded text-sm bg-green-600 hover:bg-green-700 text-white font-bold leading-normal transition duration-200">
-                                        Send
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+             
+              <form className="mx-auto" action="">
+                <div className="max-w-md mx-auto flex flex-wrap items-center">
+                  <input
+                    className="flex-grow py-3 px-4 mr-4 text-xs rounded leading-loose"
+                    type="email"
+                    placeholder="Enter your Email Address"
+                  />
+                  <button className="w-auto py-2 px-6 border rounded bg-red-400 hover:bg-red-500 text-gray-50 font-bold leading-loose transition duration-200">
+                    Subscribe
+                  </button>
                 </div>
+              </form>
             </div>
-        </section>
-
+          </div>
+        </div>
+      </section>
     );
+
 };
 
 export default Contacts;

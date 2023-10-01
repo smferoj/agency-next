@@ -48,10 +48,12 @@ const SiteNavBar = () => {
 
     return (
         <div>
-            <nav className='relative px-6 py-6 flex justify-between items-center bg-white'>
-                <a className='text-3xl font-bold leading-none' href='#'>
-                    <img className='h-12' src='atis-assets/logo/atis/atis-mono-black.svg' alt='' width='auto'/>
-                </a>
+            <nav className='relative px-20 py-6 flex justify-between items-center bg-green-100'>
+            <Link className="text-3xl font-bold leading-none" href="/">
+            <h1 className="text-dark text-[20px]"> Design 
+            <span className="text-red-400 font-bold ">AGENCY</span>
+            </h1>
+          </Link>
                 <div className='lg:hidden'>
                     <button onClick={()=>{NavClick()}} className='navbar-burger flex items-center text-green-600 p-3'>
                         <svg className='block h-4 w-4 fill-current' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
@@ -62,41 +64,45 @@ const SiteNavBar = () => {
                 </div>
                 <ul className='hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6'>
                     <li>
-                        <Link className={current==="/"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "} href={"/"}>Start</Link>
+                        <Link className={current==="/"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "} href={"/"}>Home</Link>
                     </li>
-                    <li className='text-gray-300'>
-                        <svg className='w-4 h-4 current-fill' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z'/>
-                        </svg>
-                    </li>
+                   
                     <li>
                         <Link className={current==="/team"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "} href={"/team"}>Team</Link>
                     </li>
-                    <li className='text-gray-300'>
-                        <svg className='w-4 h-4 current-fill' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z'/>
-                        </svg>
-                    </li>
+                   
                     <li>
                         <Link  className={current==="/services"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "} href={'/services'}>Services</Link>
                     </li>
-                    <li className='text-gray-300'>
-                        <svg className='w-4 h-4 current-fill' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z'/>
-                        </svg>
-                    </li>
+                
                     <li>
                         <Link className={current==="/projects"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "} href={'/projects'}>Projects</Link>
                     </li>
-                    <li className='text-gray-300'>
-                        <svg className='w-4 h-4 current-fill' xmlns='http://www.w3.org/2000/svg' fill='none'viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z'/>
-                        </svg>
-                    </li>
+                  
                     <li>
                         <Link className={current==="/testimonials"?"text-sm text-green-600 font-bold":"text-sm text-gray-400 hover:text-gray-500 "}  href={'/testimonials'}>Testimonials</Link>
                     </li>
                 </ul>
+
+                <ul className="flex gap-3"> 
+            <li>
+              <Link
+                className="text-sm w-content bg-transparent px-3 py-[6px] rounded border border-1 border-green-500"
+                href="/login"
+              >
+                 Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-sm  text-white px-3 py-2 rounded bg-green-500"
+                href="/register"
+              >
+                 Register
+              </Link>
+            </li>
+            </ul>   
+            
             </nav>
 
             <div className='hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50'>

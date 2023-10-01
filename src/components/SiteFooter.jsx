@@ -1,11 +1,16 @@
 import Link from "next/link";
-const SiteFooter = () => {
+async function getData(){
+  const res = await fetch(process.env.BASE_URL+"api/SocialLink");
+  if(!res.ok){
+      throw new Error("All project Calling Fail")
+  }
+  return  res.json();
+}
+const SiteFooter = async() => {
+    const data = await getData();
     return (
         <section>
             <div className="skew skew-top mr-for-radius">
-                <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-900" viewBox="0 0 10 10" preserveAspectRatio="none">
-                    <polygon fill="currentColor" points="0 0 10 10 0 10" />
-                </svg>
             </div>
             <div className="skew skew-top ml-for-radius">
                 <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-900" viewBox="0 0 10 10" preserveAspectRatio="none">
@@ -14,17 +19,13 @@ const SiteFooter = () => {
             </div>
             <div className="py-20 bg-gray-900 radius-for-skewed">
                 <div className="container mx-auto px-4">
-                    <div className="pb-12 flex flex-wrap items-center justify-between border-b border-gray-800">
-                        <div className="w-full lg:w-1/5 mb-12 lg:mb-4">
-                            <a className="inline-block text-3xl font-bold leading-none" href="#">
-                                <img className="h-12" src="atis-assets/logo/atis/atis-mono-white.svg" alt="" width="auto"/>
-                            </a>
-                        </div>
+                    <div className="pb-12 flex items-center justify-between border-b border-gray-800">
+                        <h1 className="text-green-500 text-3xl">WEB LOGO</h1>
                         <div className="w-full lg:w-auto">
                             <ul className="flex flex-wrap lg:space-x-5 items-center">
                                 <li className="w-full md:w-auto mb-2 md:mb-0">
                                     <Link className="lg:text-sm text-gray-400 hover:text-gray-300" href={"/"}>
-                                        Start
+                                        Home
                                     </Link>
                                 </li>
                                 <li className="hidden md:block">
@@ -71,18 +72,20 @@ const SiteFooter = () => {
                         </div>
                     </div>
                     <div className="mt-8 flex flex-wrap justify-between items-center">
-                        <p className="order-last text-sm text-gray-400">© 2024. All rights reserved.
+                        <p className="order-last text-sm text-gray-400">Copyright Design Agency 2022
                         </p>
                         <div className="mb-4 lg:mb-0 order-first lg:order-last">
-                            <a className="inline-block mr-2 p-2 bg-gray-800 hover:bg-gray-700 rounded" href="#">
-                                <img src="atis-assets/social/facebook.svg" />
-                            </a>
-                            <a className="inline-block mr-2 p-2 bg-gray-800 hover:bg-gray-700 rounded" href="#">
-                                <img src="atis-assets/social/twitter.svg" />
-                            </a>
-                            <a className="inline-block mr-2 p-2 bg-gray-800 hover:bg-gray-700 rounded" href="#">
-                                <img src="atis-assets/social/instagram.svg" />
-                            </a>
+                          
+                            {
+                                data.map((item, id)=>{
+                                   return(
+                                <a className="inline-block mr-2 p-2 bg-green-500 hover:bg-gray-700 rounded" href={item['link']}>
+                                 <p>{item['name']}</p>
+                               </a>
+                                   )
+                                }
+                            )}
+                          
                         </div>
                     </div>
                 </div>
